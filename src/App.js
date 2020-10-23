@@ -71,7 +71,6 @@ class App extends React.Component {
         if(this.state.page===1){
             return(
                     <div className="App">
-                        <p>{this.state.page}/10</p>
                         <Welcome page={this.state.page}/>
                         <Text page={this.state.page} />
                         <input className="formik" type="text" onChange={this.setName} placeholder="Zadej svoje jméno nebo přezdívku" />
@@ -79,29 +78,28 @@ class App extends React.Component {
                         <button type="button" onClick={this.plusOne}>Pokračovat</button>
                     </div>
                 )
-        } else if (this.state.page===10) {
+        } else if (this.state.page===8) {
             return(
-                <div className="App">
-                <p>{this.state.page}/10</p>
-                <Welcome page={this.state.page}/>
-                <br/>
-                <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
-                <br/>
-                <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=3&autoplay=1" allowFullScreen/>
+                <div className="EApp">
+                    <br/>
+                    <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
+                    <br/>
+                    <audio autoPlay>
+                        <source src="../public/basen_full.mp3" type="audio/mpeg"/>
+                    </audio>
                 </div>
             )
         } else {
             return (
                 <div className="App">
-                    <p>{this.state.page}/10</p>
                     <Welcome page={this.state.page}/>
                     <Text page={this.state.page} name={this.state.name}/>
                     <br/>
                     <button type="button" onClick={this.plusOne}>Pokračovat</button>
                     <br/>
-                    <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=5&autoplay=1" frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen/>
+                    <audio autoplay>
+                            <source src="../public/pozadi.mp3" type="audio/mpeg" />
+                    </audio>
                 </div>
             );
         }
