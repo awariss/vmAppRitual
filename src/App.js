@@ -3,6 +3,7 @@ import './App.css';
 import Welcome from './parts/Welcome';
 import Text from "./parts/text";
 import Audio from "./parts/audio";
+import EndScreen from "./parts/EndScreen";
 
 const reFetchTime = 1000
 
@@ -67,7 +68,7 @@ class App extends React.Component {
 
     render() {
         if (this.state.finished) {
-            return <div>{this.state.names.map(name => <div style={{color: "white"}}>{name}</div>)}</div>
+            return <EndScreen names={this.state.names} />
         }
         if(this.state.page===1){
             return(
