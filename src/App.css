@@ -2,37 +2,126 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'skautbold';
+  src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot');
+  src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.eot? #iefix') format('embedded-opentype');
+  src: url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff') format('woff'),
+  url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.woff2') format('woff2'),
+  url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.otf') format('opentype'),
+  url('https://cdn.skauting.cz/fonts/skaut-bold-webfont.svg#skautbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'themix';
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.eot? #iefix') format('embedded-opentype');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff') format('woff'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400.woff2') format('woff2'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400.otf') format('opentype'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400.svg#themix') format('svg');
+  font-weight: 400;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+  font-family: 'themix';
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.eot? #iefix') format('embedded-opentype');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff') format('woff'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.woff2') format('woff2'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.otf') format('opentype'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_400i.svg#themix') format('svg');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'themix';
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.eot? #iefix') format('embedded-opentype');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff') format('woff'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700.woff2') format('woff2'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700.otf') format('opentype'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700.svg#themix') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'themix';
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.eot? #iefix') format('embedded-opentype');
+  src: url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff') format('woff'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.woff2') format('woff2'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.otf') format('opentype'),
+  url('https://cdn.skauting.cz/fonts/TheMix_LT_700i.svg#themix') format('svg');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Nastavení The Mix jako základního písma a barvy na tmavě modrou */
+
+body {
+  font-family: themix, sans-serif;
+  background-color: #002039;
+}
+
+/* Nastavení hlavního nadpisu písmem Skaut Bold */
+
+h1 {
+  font-family: skautbold;
+  color: #ffc107;
+  font-size:70px ;
+}
+
+/* Nastavení písma The Mix pro podnadpisy */
+
+h2, h3, h4, h5, h6 {
+  font-family: themix, sans-serif;
+  font-weight: 700;
+}
+
+p{
+  color: #addee8;
+}
+
+.container {
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: auto;
+}
+.asdf {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+button{
+  padding: 12px;
+  position:relative;
+  margin-top:10%;
+  background-color: #002039;
+  color: aliceblue;
+  border-radius: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+iframe{
+  visibility: hidden;
+}
+
+.textik{
+  margin: auto;
+  max-width: 450px;
+  text-align:justify;
+
+}
+
+.formik{
+  margin: 15px;
 }
