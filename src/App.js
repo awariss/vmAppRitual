@@ -4,13 +4,27 @@ import Welcome from './parts/Welcome';
 import Text from "./parts/text";
 import Audio from "./parts/audio";
 
+const reFetchTime = 1000
+
 class App extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
+        let finished = localStorage.getItem("vmFinished")
+        if (finished == null) {
+            finished = false
+            localStorage.setItem("vmFinished", false)
+        }
+        if (finished) {
+            this.fetchNames()
+        }
+
+        console.log(finished)
         this.state = {
             page: 1,
             name: '',
+            names: [],
+            finished: finished
         }
     }
 
@@ -23,12 +37,38 @@ class App extends React.Component {
     };
 
     end = () => {
-        window.location.href = 'https://velkamorava.skauting.cz/';
+        if (this.state.finished) {
+            return
+        }
+        //localStorage.setItem("vmFinished", true)
+        this.setState({finished: true})
+        fetch("/finished?name=" + this.state.name)
+            .then((response) => {
+                response.json().then((names) => {
+                    console.log(names)
+                    this.setState({names: names})
+                    setTimeout(() => this.fetchNames(), reFetchTime)
+                })
+            })
+    }
+
+    fetchNames = () => {
+        console.log("refethingNames")
+        fetch("/getNames")
+            .then(response => {
+                response.json().then((names) => {
+                    console.log(names)
+                    this.setState({names: names})
+                    setTimeout(() => this.fetchNames(), reFetchTime)
+                })
+            }).catch(() => this.fetchNames())
     }
 
 
     render() {
-
+        if (this.state.finished) {
+            return <div>{this.state.names.map(name => <div>{name}</div>)}</div>
+        }
         if(this.state.page===1){
             return(
                     <div className="App">
@@ -40,37 +80,32 @@ class App extends React.Component {
                         <button type="button" onClick={this.plusOne}>Pokračovat</button>
                     </div>
                 )
-        }
-        else{
-            if(this.state.page===10){
-                return(
-                    <div className="App">
+        } else if (this.state.page===10) {
+            return(
+                <div className="App">
+                <p>{this.state.page}/10</p>
+                <Welcome page={this.state.page}/>
+                <br/>
+                <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
+                <br/>
+                <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=3&autoplay=1" allowFullScreen/>
+                </div>
+            )
+        } else {
+            return (
+                <div className="App">
                     <p>{this.state.page}/10</p>
                     <Welcome page={this.state.page}/>
+                    <Text page={this.state.page} name={this.state.name}/>
                     <br/>
-                    <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
+                    <button type="button" onClick={this.plusOne}>Pokračovat</button>
                     <br/>
-                    <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=3&autoplay=1" allowFullScreen/>
-                    </div>
-                )
-            }
-            else{
-                return (
-                    <div className="App">
-                        <p>{this.state.page}/10</p>
-                        <Welcome page={this.state.page}/>
-                        <Text page={this.state.page} name={this.state.name}/>
-                        <br/>
-                        <button type="button" onClick={this.plusOne}>Pokračovat</button>
-                        <br/>
-                        <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=5&autoplay=1" frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen/>
-                    </div>
-                );
-            }
+                    <iframe width="10" height="10" src="https://www.youtube.com/embed/_2lffRQorW0?&start=5&autoplay=1" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen/>
+                </div>
+            );
         }
-
     }
 }
 
