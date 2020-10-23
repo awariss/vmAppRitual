@@ -10,7 +10,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props)
-        let finished = localStorage.getItem("vmFinished")
+        let finished = JSON.parse(localStorage.getItem("vmFinished"))
         if (finished == null) {
             finished = false
             localStorage.setItem("vmFinished", false)
@@ -67,7 +67,7 @@ class App extends React.Component {
 
     render() {
         if (this.state.finished) {
-            return <div>{this.state.names.map(name => <div>{name}</div>)}</div>
+            return <div>{this.state.names.map(name => <div style={{color: "white"}}>{name}</div>)}</div>
         }
         if(this.state.page===1){
             return(
