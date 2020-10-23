@@ -46,7 +46,7 @@ class App extends React.Component {
         fetch("/finished?name=" + this.state.name)
             .then((response) => {
                 response.json().then((names) => {
-                    console.log(names)
+
                     this.setState({names: names})
                     setTimeout(() => this.fetchNames(), reFetchTime)
                 })
@@ -54,11 +54,9 @@ class App extends React.Component {
     }
 
     fetchNames = () => {
-        console.log("refethingNames")
         fetch("/getNames")
             .then(response => {
                 response.json().then((names) => {
-                    console.log(names)
                     this.setState({names: names})
                     setTimeout(() => this.fetchNames(), reFetchTime)
                 })
