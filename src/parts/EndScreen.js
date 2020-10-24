@@ -22,6 +22,9 @@ const canvasWidth = 1800
 const canvasHeight = 930
 
 function getPosition(i) {
+    if (i >= coordinates.length) {
+        return null
+    }
     const coor = coordinates[i % coordinates.length]
     const windowHeight = window.innerHeight
     const windowWidth = window.innerWidth
