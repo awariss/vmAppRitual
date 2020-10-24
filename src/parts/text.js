@@ -6,7 +6,7 @@ class Text extends React.Component {
         switch(this.props.page) {
             case 1:
                 return(
-                    <p className="textik">Nyní tě čekají poslední kroky tvé velkomoravské cesty. Obleč si kroj, přines si šňůrku z jarního víkendu, měj po ruce papír s tužkou. Zhasni světla, rozesviť svíci a ohlédni se nad dálkou, kterou jsi ušel.</p>
+                    <p className="textik">Nyní tě čekají poslední kroky Tvé velkomoravské cesty. Obleč si kroj, přines si šňůrku z jarního víkendu, měj po ruce papír s tužkou. Zhasni světla, rozesviť svíci a ohlédni se nad dálkou, kterou jsi ušel.</p>
                 );
             case 2:
                 return <p className="textik">Dobrodružství doma nečeká… Co má ale slovo dobrodružství společného s “dobrem” a “druhem” – se slovy, z nichž se skládá? … Jak by definoval dobrodružství politik, jak učitel a jak herec? Kdo z nich by se shodnul a kdo z nich spíše naopak? Já říkám, že není doba lehká a těžká, je jen doba teď a tady. A pak vzpomínky. Jsou tu ještě vzpomínky. Jsou jako hvězdy na nebi, jako pampelišky na louce, jako vlaky na mostech, jako světlo svíčky - chvíli tu jsou a hned svět ožije. Kolik vzpomínek ale udržíme v hlavě? … Povím Ti nyní o jedné své vzpomínce, kterou jsem si poslední dobou oblíbil - jak tak doma sedím, vracím se k ní častěji. Ano, bylo to v tom roce pitomém, kdy snad každý pozemšťan zaznamenal existenci jedné (obyčejně naprosto bezvýznamné) východní megalopole. Toto není příběh té megalopole ani její slávy, toto je příběh můj a rád se o něj podělím.</p>;
@@ -28,7 +28,7 @@ class Text extends React.Component {
                     </p>
                     <br />
                     <p className={"textik"}>
-                        Co vidíš Ty, když zavzpomínáš na léto a velkomoravské hradiště? O kterém zážitku z hradiště jsi někdy někomu vyprávěl? Jaké zážitky bys doporučil svým kamarádům prožít?
+                        Co vidíš Ty, když zavzpomínáš na léto a Velkomoravské hradiště? O kterém zážitku z hradiště jsi někdy někomu vyprávěl? Jaké zážitky bys doporučil svým kamarádům prožít?
                     </p>
                 </React.Fragment>;
             case 5:
@@ -54,9 +54,13 @@ class Text extends React.Component {
             case 7:
                 return <React.Fragment>
                     <p className="textik">
-                        Když se teď koukám zpět, mám z toho mrazení. Ač možná se mi, teď na konci, chvěje hlas, jedno je mi zcela jasné. Jsem vděčný, že jsme se na naší Cestě potkali a můžeme sdílet část stejného příběhu. A už teď se těším na okamžik, kdy nás naše kroky dovedou na jedno místo. Pokud se tak ovšem někdy stane… Na kom to záleží - na tobě nebo na mě?
+                        Když se teď koukám zpět, mám z toho mrazení. Ač možná se mi, teď na konci, chvěje hlas, jedno je mi zcela jasné. Jsem vděčný, že jsme se na naší Cestě potkali a můžeme sdílet část stejného příběhu. A už teď se těším na okamžik, kdy nás naše kroky dovedou na jedno místo.
                     </p>
                     <br />
+                    <p className="textik">
+                        Pokud se tak ovšem někdy stane… Na kom to záleží - na tobě nebo na mě?
+                    </p>;
+                    <br />;
                     <p className="textik">
                         Nyní už zbývá jen odpovědět na poslední otázku - jaká bude má další cesta?
                     </p>;
