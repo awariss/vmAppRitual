@@ -1,4 +1,5 @@
 .App {
+  height: 100%;
   text-align: center;
 }
 
@@ -67,6 +68,7 @@
 body {
   font-family: themix, sans-serif;
   background-color: #002039;
+  margin: 0;
 }
 
 /* Nastavení hlavního nadpisu písmem Skaut Bold */
@@ -75,6 +77,12 @@ h1 {
   font-family: skautbold;
   color: #ffc107;
   font-size:70px ;
+  padding-top: 0.63em;
+  padding-bottom: 0.63em;
+  margin-block-start: 0px;
+  margin-block-end: 0px;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 /* Nastavení písma The Mix pro podnadpisy */
@@ -114,10 +122,8 @@ button{
   border-width: 3px;
 }
 
-button:hover {
-  background: #ffc107;
-  color: #002039;
-  border-color: #002039;
+audio:focus {
+  outline: 0;
 }
 
 button:focus {

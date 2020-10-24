@@ -20,7 +20,7 @@ class Welcome extends React.Component {
             case 7:
                 return<h1>Jedno končí, jiné začíná</h1>;
             case 8:
-                return<br></br>;
+                return<h1>Tvá cesta se chílí ke konci</h1>;
             default:
                 return<h1>Error BRO</h1>;
         }

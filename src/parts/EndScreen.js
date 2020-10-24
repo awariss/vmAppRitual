@@ -13,6 +13,7 @@ export default function EndScreen(props) {
         <div >
             <Audio src={"/choral.mp3"} autoPlay={true} loop={true} controls={true}/>
         </div>
+        <button className={"meetButton"} onClick={() => {window.open("https://meet.google.com/bbw-yrie-bgr", "_blank");}}>Meet</button>
         <div className={"overLay"} />
     </div>
 }

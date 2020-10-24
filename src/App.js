@@ -25,7 +25,8 @@ class App extends React.Component {
             page: 1,
             name: '',
             names: [],
-            finished: finished
+            finished: true,
+            endButton: false,
         }
     }
 
@@ -84,10 +85,12 @@ class App extends React.Component {
         } else if (this.state.page===8) {
             return(
                 <div className="App">
+                    <div className={"last"}>
+                    <Welcome page={this.state.page}/>
+                    {this.state.endButton? <button type="button" onClick={this.end}>Ukonči svoje putování!</button>: null}
                     <br/>
-                    <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
-                    <br/>
-                    <Audio src={"/basen_full.mp3"} autoPlay={true} controls={true} loop={false} volume={1} />
+                    <Audio src={"/basen_full.mp3"} autoPlay={true} controls={true} loop={false} volume={1} onEnd={() => this.setState({endButton: true})}/>
+                </div>
                 </div>
             )
         } else {
