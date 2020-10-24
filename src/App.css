@@ -105,10 +105,23 @@ p{
 button{
   padding: 12px;
   position:relative;
-  margin-top:10%;
+  margin-top: 25px;
+  margin-bottom: 40px;
   background-color: #002039;
   color: aliceblue;
+  border-color: #addee8;
   border-radius: 12px;
+  border-width: 3px;
+}
+
+button:hover {
+  background: #ffc107;
+  color: #002039;
+  border-color: #002039;
+}
+
+button:focus {
+  outline:0;
 }
 
 iframe{
@@ -116,12 +129,21 @@ iframe{
 }
 
 .textik{
+  font-family: themix, sans-serif;
+  font-size: larger;
   margin: auto;
-  max-width: 450px;
+  max-width: 550px;
   text-align:justify;
+  line-height: 32px;
+}
 
+input:focus {
+  outline:0;
 }
 
 .formik{
   margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 250px;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Star from "./Star";
+import Audio from "./audio";
 
 export default function EndScreen(props) {
     const {names} = props
@@ -8,6 +9,9 @@ export default function EndScreen(props) {
             {names.map((name, i) => {
                 return <Star name={name} position={getPosition(i)}/>
             })}
+        </div>
+        <div >
+            <Audio src={"/choral.mp3"} autoPlay={true} loop={true} controls={true}/>
         </div>
         <div className={"overLay"} />
     </div>
@@ -21,7 +25,6 @@ function getPosition(i) {
     const windowHeight = window.innerHeight
     const windowWidth = window.innerWidth
     const f = windowWidth * 1.1 / canvasWidth
-    console.log(f)
     return {
         left: (coor.left * f + windowWidth / 2),
         top: (coor.top * f + windowHeight / 2)

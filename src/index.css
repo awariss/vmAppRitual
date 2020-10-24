@@ -71,3 +71,15 @@ code {
 .content {
   z-index: 4;
 }
+
+.playerContainer {
+  flex: 1;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  justify-self: flex-end;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 10;
+}

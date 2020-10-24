@@ -30,7 +30,10 @@ class App extends React.Component {
     }
 
     plusOne = () => {
-        this.setState({ page: this.state.page+1 });
+        if (this.state.name.length > 0) {
+            window.scrollTo({top: 0})
+            this.setState({ page: this.state.page+1 });
+        }
     };
 
     setName = (event) => {
@@ -80,13 +83,11 @@ class App extends React.Component {
                 )
         } else if (this.state.page===8) {
             return(
-                <div className="EApp">
+                <div className="App">
                     <br/>
                     <button type="button" onClick={this.end}>Ukonči svoje putování!</button>
                     <br/>
-                    <audio autoPlay>
-                        <source src="../public/basen_full.mp3" type="audio/mpeg"/>
-                    </audio>
+                    <Audio src={"/basen_full.mp3"} autoPlay={true} controls={true} loop={false} volume={1} />
                 </div>
             )
         } else {
@@ -97,9 +98,7 @@ class App extends React.Component {
                     <br/>
                     <button type="button" onClick={this.plusOne}>Pokračovat</button>
                     <br/>
-                    <audio autoplay>
-                            <source src="../public/pozadi.mp3" type="audio/mpeg" />
-                    </audio>
+                    <Audio src={"/pozadi.mp3"} autoPlay={true} controls={true} loop={true} volume={0.3} />
                 </div>
             );
         }

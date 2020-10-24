@@ -2,10 +2,25 @@ import React from "react";
 import '../App.css';
 
 class Audio extends React.Component {
-    render() {
+    componentDidMount() {
+        if (this.props.autoPlay) {
+            document.getElementById("audioPlayer").play()
+        }
+    }
 
+    render() {
+        const {loop, src, autoPlay, controls} = this.props
         return(
-            <audio controls src="../../media/choral1.mp3"></audio>
+            <div className={"playerContainer"}>
+                <audio controls={controls} loop={loop} autoPlay={autoPlay} id={"audioPlayer"} onPlay={pl => {
+                    if (!pl?.target || !this?.props?.volume) {
+                        return
+                    }
+                    pl.target.volume = this.props.volume
+                }}>
+                    <source src={src} type={"audio/mp3"} />
+                </audio>
+            </div>
         )
     }
 }
