@@ -3,10 +3,14 @@ const app = express()
 const port = 80
 const path = require('path');
 
+const LocalStorage = require("node-localstorage").LocalStorage
+const localStorage = new LocalStorage("./data")
+
+
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.static("public"));
 
-let finishedNames = []
+let finishedNames = JSON.parse(localStorage.getItem("names")) || [];
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
@@ -20,12 +24,14 @@ app.get("/finished", (req, res) => {
     }
     console.log("'"+ name +"' has finished.")
     finishedNames.push(name)
+    localStorage.setItem("names", JSON.stringify(finishedNames))
     res.send(JSON.stringify(finishedNames))
 })
 
 app.get("/getNames", (req, res) => {
     res.send(JSON.stringify(finishedNames))
 })
+
 
 app.get("/removeName", (req, res) => {
     const name = req.query.name
@@ -34,11 +40,13 @@ app.get("/removeName", (req, res) => {
         return
     }
     removeName(name)
+    localStorage.setItem("names", JSON.stringify(finishedNames))
     res.send("OK")
 })
 
 app.get("/resetNamesSecret", (req, res) => {
     finishedNames = []
+    localStorage.setItem("names", JSON.stringify(finishedNames))
     res.send("OK")
 })
 
