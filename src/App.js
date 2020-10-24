@@ -5,7 +5,7 @@ import Text from "./parts/text";
 import Audio from "./parts/audio";
 import EndScreen from "./parts/EndScreen";
 
-const reFetchTime = 1000
+const reFetchTime = 1500
 
 class App extends React.Component {
 

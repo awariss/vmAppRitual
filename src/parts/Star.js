@@ -6,9 +6,10 @@ export default function Star(props) {
         return null
     }
     const className = hovered ? "show" : ""
+    const width = window.innerWidth > 460 ? 40 : 20
     return <div className={"starContainer"} style={props.position}>
         <img src={"/star.png"} alt={"star"}
-             width={40} height={40}
+             width={width} height={width}
              onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
         />
         <div className={"starName " + className}>

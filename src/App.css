@@ -114,7 +114,7 @@ button{
   padding: 12px;
   position:relative;
   margin-top: 25px;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   background-color: #002039;
   color: aliceblue;
   border-color: #addee8;
@@ -139,6 +139,8 @@ iframe{
   font-size: larger;
   margin: auto;
   max-width: 550px;
+  padding-left: 15px;
+  padding-right: 15px;
   text-align:justify;
   line-height: 32px;
 }

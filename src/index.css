@@ -93,6 +93,18 @@ code {
   z-index: 10;
 }
 
+@media (max-width: 460px) {
+  .meetButton {
+    position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 15px;
+    left: 15px;
+    bottom: unset !important;
+    z-index: 10;
+  }
+}
+
 .meetButton {
   position: absolute;
   margin-bottom: 0;
