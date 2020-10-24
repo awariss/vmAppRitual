@@ -38,8 +38,8 @@ class App extends React.Component {
         if (this.state.name.length > 0) {
             window.scrollTo({top: 0})
             if (this.state.page === 7) {
-                localStorage.setItem("vmLast", JSON.stringify(true))
                 localStorage.setItem("vmName", JSON.stringify(this.state.name))
+                localStorage.setItem("vmLast", JSON.stringify(true))
             }
             this.setState({ page: this.state.page+1 });
         }
