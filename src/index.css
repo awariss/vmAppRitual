@@ -69,6 +69,7 @@ code {
   align-items: center;
   font-family: skautbold;
   color: #ffc107;
+  text-align: center;
 }
 
 .starName.show {
