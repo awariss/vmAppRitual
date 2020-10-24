@@ -25,7 +25,7 @@ class App extends React.Component {
             page: 1,
             name: '',
             names: [],
-            finished: true,
+            finished: finished,
             endButton: false,
         }
     }
