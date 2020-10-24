@@ -12,9 +12,13 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         let finished = JSON.parse(localStorage.getItem("vmFinished"))
+        let last = JSON.parse(localStorage.getItem("vmLast"))
+        let name = JSON.parse(localStorage.getItem("vmName")) ?? ""
+
+
         if (finished == null) {
             finished = false
-            localStorage.setItem("vmFinished", false)
+            localStorage.setItem("vmFinished", JSON.stringify(false))
         }
         if (finished) {
             this.fetchNames()
@@ -22,8 +26,8 @@ class App extends React.Component {
 
         console.log(finished)
         this.state = {
-            page: 1,
-            name: '',
+            page: last ? 8 : 1,
+            name: name,
             names: [],
             finished: finished,
             endButton: false,
@@ -33,6 +37,10 @@ class App extends React.Component {
     plusOne = () => {
         if (this.state.name.length > 0) {
             window.scrollTo({top: 0})
+            if (this.state.page === 7) {
+                localStorage.setItem("vmLast", JSON.stringify(true))
+                localStorage.setItem("vmName", JSON.stringify(this.state.name))
+            }
             this.setState({ page: this.state.page+1 });
         }
     };
@@ -45,7 +53,7 @@ class App extends React.Component {
         if (this.state.finished) {
             return
         }
-        //localStorage.setItem("vmFinished", true)
+        localStorage.setItem("vmFinished", JSON.stringify(true))
         this.setState({finished: true})
         fetch("/finished?name=" + this.state.name)
             .then((response) => {
